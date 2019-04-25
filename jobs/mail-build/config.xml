@@ -8,17 +8,14 @@
     <script>node(&apos;master&apos;) {
     docker.withServer(&apos;unix:///var/run/docker.sock&apos;) {
         stage(&apos;Git clone&apos;) {
-            git &apos;https://github.com/antonfisher/node-mocha-extjs.git&apos;
+            git &apos;git@github.com:iteabit/docker_nodejs_app.git&apos;
         }
         stage(&apos;Build&apos;) {
             docker
                 .image(&apos;jenkins-agent-ubuntu&apos;)
                 .inside(&apos;--volumes-from jenkins-master&apos;) {
                     sh &quot;&quot;&quot;
-                        hostname;
-                        ls;
-                        pwd;
-                        sleep 60;
+                        npm install;
                     &quot;&quot;&quot;
                 }
         }
