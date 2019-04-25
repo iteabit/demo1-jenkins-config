@@ -18,6 +18,7 @@
                         hostname;
                         ls;
                         pwd;
+                        sleep 60;
                     &quot;&quot;&quot;
                 }
         }
