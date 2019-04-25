@@ -17,22 +17,12 @@
                     sh &quot;hostname;&quot;
                 }
         }
-        stage(&apos;Copy build results&apos;) {
-            docker
-                .image(&apos;jenkins-agent-ubuntu&apos;)
-                .inside(&apos;--volumes-from jenkins-master&apos;) {
-                    sh &quot;&quot;&quot;
-                        sshpass -plol scp \
-                            &quot;${WORKSPACE}/build/*.tar.gz&quot; \
-                            &quot;backup@1.1.1.1:/buils&quot;;
-                    &quot;&quot;&quot;
-                }
-        }
         stage(&apos;UI unit tests&apos;) {
             docker
                 .image(&apos;jenkins-agent-ubuntu&apos;)
                 .inside(&apos;--volumes-from jenkins-master&apos;) {
                     sh &quot;&quot;&quot;
+                        hostname;
                         cd ./tests;
                         bash ./run.sh;
                     &quot;&quot;&quot;
