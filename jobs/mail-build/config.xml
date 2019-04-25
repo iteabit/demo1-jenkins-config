@@ -24,7 +24,9 @@
                 .image(&apos;jenkins-agent-ubuntu&apos;)
                 .inside(&apos;--volumes-from jenkins-master&apos;) {
                     sh &quot;&quot;&quot;
-                        npm start &amp;;
+                        pwd;
+                        ls;
+                        ./start.sh;
                         curl -i localhost:8080;
                     &quot;&quot;&quot;
                 }
