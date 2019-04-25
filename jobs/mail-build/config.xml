@@ -14,17 +14,10 @@
             docker
                 .image(&apos;jenkins-agent-ubuntu&apos;)
                 .inside(&apos;--volumes-from jenkins-master&apos;) {
-                    sh &quot;hostname;&quot;
-                }
-        }
-        stage(&apos;UI unit tests&apos;) {
-            docker
-                .image(&apos;jenkins-agent-ubuntu&apos;)
-                .inside(&apos;--volumes-from jenkins-master&apos;) {
                     sh &quot;&quot;&quot;
                         hostname;
-                        cd ./tests;
-                        bash ./run.sh;
+                        ls;
+                        pwd;
                     &quot;&quot;&quot;
                 }
         }
