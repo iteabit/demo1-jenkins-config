@@ -14,7 +14,7 @@
             docker
                 .image(&apos;jenkins-agent-ubuntu&apos;)
                 .inside(&apos;--volumes-from jenkins-master&apos;) {
-                    sh &quot;bash ./build.sh;&quot;
+                    sh &quot;hostname;&quot;
                 }
         }
         stage(&apos;Copy build results&apos;) {
