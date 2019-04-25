@@ -19,6 +19,16 @@
                     &quot;&quot;&quot;
                 }
         }
+        stage(&apos;Test&apos;) {
+            docker
+                .image(&apos;jenkins-agent-ubuntu&apos;)
+                .inside(&apos;--volumes-from jenkins-master&apos;) {
+                    sh &quot;&quot;&quot;
+                        npm start &amp;;
+                        curl -i localhost:8080
+                    &quot;&quot;&quot;
+                }
+        }
     }
 }</script>
     <sandbox>true</sandbox>
